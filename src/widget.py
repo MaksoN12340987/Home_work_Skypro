@@ -1,4 +1,4 @@
-import src.masks
+from src.masks import get_mask_card_number, get_mask_account
 
 
 def mask_account_card(to_mask: str = "") -> str:
@@ -14,6 +14,6 @@ def mask_account_card(to_mask: str = "") -> str:
         temp += to_mask[i]
 
     if to_mask[:index] == "Счет ":
-        return src.masks.get_mask_account(to_mask, index)
+        return get_mask_account(to_mask, index)
     else:
-        return src.masks.get_mask_card_number(to_mask, index)
+        return get_mask_card_number(to_mask, index)

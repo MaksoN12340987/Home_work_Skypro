@@ -25,6 +25,3 @@ def list_data_bank_operation():
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:21:33.419441"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:20:00.419441"}
     ]
-
-
-assert src.widget.mask_account_card(card_number) == "Visa Platinum 7000 79** **** 6361"
