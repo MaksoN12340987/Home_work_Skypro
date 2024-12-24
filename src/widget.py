@@ -1,8 +1,9 @@
-from src.masks import get_mask_card_number, get_mask_account
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(to_mask: str = "") -> str:
-    '''Принимает строку с именем держателя и номером карты или номер счёта и возвращает Имя держателя и замаскированный номер карты или номер счёта'''
+    """Принимает строку с именем держателя и номером карты или номер счёта
+    и возвращает Имя держателя и замаскированный номер карты или номер счёта"""
     index = 0
     temp = ""
     for i in range(len(to_mask)):

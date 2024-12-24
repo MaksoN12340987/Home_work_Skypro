@@ -1,7 +1,7 @@
 # Functional part
 def get_mask_card_number(card_number: str = "", start: int = 0) -> str:
     """принимает на вход номер карты, индекс первой цыфры номера карты и возвращает маску номера
-       по правилу User Name XXXX XX** **** XXXX"""
+    по правилу User Name XXXX XX** **** XXXX"""
     out_format = card_number[:start]
     split = start + 3
     temp = range(start + 6, start + 12)

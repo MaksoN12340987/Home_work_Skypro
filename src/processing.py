@@ -14,5 +14,5 @@ def filter_by_state(to_sort: list = [], state_key: str = "EXECUTED") -> list:
 def sort_by_date(operation_list: list = [], date: bool = True) -> list:
     """Принимает список словарей и параметр сортировки (по умолчанию "True" — убывание).
     Функция возвращает новый список, отсортированный по дате (date)"""
-    operation_list.sort(key=lambda operation_list: operation_list["date"][:9 + 11:], reverse=date)
+    operation_list.sort(key=lambda operation_list: operation_list["date"][: 9 + 11 :], reverse=date)
     return operation_list
