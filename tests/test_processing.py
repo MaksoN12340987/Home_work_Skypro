@@ -22,9 +22,7 @@ def test_proc_filter_by_state(input_filter_by_state, key, expected):
     assert filter_by_state(input_filter_by_state, key) == expected
 
 
-def test_proc_sort_by_date_true(
-    list_data_bank_operation: list = [], output_list_data_bank_operation_true: list = []
-):
+def test_proc_sort_by_date_true(list_data_bank_operation: list = [], output_list_data_bank_operation_true: list = []):
     assert sort_by_date(list_data_bank_operation, True) == output_list_data_bank_operation_true
 
 
