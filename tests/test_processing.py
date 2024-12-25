@@ -36,7 +36,7 @@ def test_proc_sort_by_date_false(
 
 # The expected result is negative
 def test_negative_proc_filter_by_state(input_filter_by_state):
-    with pytest.raises(ValueError) as exc_info:
+    with pytest.raises(ValueError):
         assert filter_by_state(input_filter_by_state, None) == [
             {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
             {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
