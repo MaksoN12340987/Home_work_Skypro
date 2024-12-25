@@ -31,7 +31,6 @@ def list_data_bank_operation() -> list:
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:21:33.419441"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:20:00.419441"},
     ]
-    
 
 
 @pytest.fixture
