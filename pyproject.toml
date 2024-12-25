@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "home-work-virtual-environment"
+name = "home-work-skypro"
 version = "0.1.0"
 description = ""
-authors = ["Maksim Andreev <andrianov_maksim@outlook.com>"]
+authors = ["Maxim Andreev <andrianov_maksim@outlook.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.12"
 
 
 [tool.poetry.group.lint.dependencies]
@@ -18,6 +18,10 @@ black = "^24.10.0"
 
 [tool.poetry.group.dew.dependencies]
 pytest = "^8.3.4"
+
+[tool.poetry.group.dew.dependencies]
+pytest = "^8.3.4"
+pytest-cov = "^6.0.0"
 
 [tool.mypy]
 disallow_untyped_defs = true
@@ -47,7 +51,6 @@ exclude = '''
 line_length = 119
 skip_glob = ["docs/*"]
 skip = [".gitignore", ".dockerignore"]
-
 
 [build-system]
 requires = ["poetry-core"]

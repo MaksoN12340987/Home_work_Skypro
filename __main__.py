@@ -1,8 +1,9 @@
-import src.widget
+from src.processing import filter_by_state, sort_by_date
+from src.widget import mask_account_card
 
-if __name__ == '__main__':
-    test_1 = "Visa Platinum 7000792289606361"
-    test_2 = "Счет 73654108430135874305"
+if __name__ == "__main__":
+    print(mask_account_card())
+    print(mask_account_card())
 
-    print(src.widget.mask_account_card(test_1))
-    print(src.widget.mask_account_card(test_2))
+    print(filter_by_state())
+    print(sort_by_date())

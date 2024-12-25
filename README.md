@@ -14,6 +14,11 @@
 "Visa Platinum 7000 79** **** 6361"
 "Счет **4305"
 
+## Новый функциона сортировки
+
+В пакете src появилась функця filter_by_state, которая принимает список словарей и опционально значение для ключа **state** (по умолчанию 'EXECUTED'). Функция возвращает новый список словарей, содержащий только те словари, у которых ключ **state**
+ соответствует указанному значению.
+
 
 # Homework project on the implementation of functionality for working with bank data
 
@@ -30,3 +35,7 @@ In the widget.py module, the mask_account_card function is created, which accept
 *Output format:*
 "Visa Platinum 7000 79** **** 6361"
 "Account **4305"
+
+## New sorting function
+
+The src package now has a filter_by_state function that takes a list of dictionaries and optionally a value for the **state** key (default 'EXECUTED'). The function returns a new list of dictionaries containing only those dictionaries whose **state** key matches the specified value.
