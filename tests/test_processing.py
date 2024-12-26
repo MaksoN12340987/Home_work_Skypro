@@ -26,9 +26,8 @@ def test_sort_by_date_true(bank_operation: list = [], output_data_bank_operation
     assert sort_by_date(bank_operation, True) == output_data_bank_operation_true
 
 
-def test_sort_by_date_false(
-    list_data_bank_operation: list = [], output_list_data_bank_operation_false: list = []
-):
+def test_sort_by_date_false(list_data_bank_operation: list = [],
+                            output_list_data_bank_operation_false: list = []):
     assert sort_by_date(list_data_bank_operation, False) == output_list_data_bank_operation_false
 
 
