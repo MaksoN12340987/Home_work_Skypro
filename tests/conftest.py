@@ -13,7 +13,7 @@ def account_number() -> str:
 
 # Test processind module
 @pytest.fixture()
-def input_filter_by_state() -> list:
+def input_list_to_filter() -> list:
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -23,7 +23,7 @@ def input_filter_by_state() -> list:
 
 
 @pytest.fixture
-def list_data_bank_operation() -> list:
+def bank_operation() -> list:
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
@@ -34,7 +34,7 @@ def list_data_bank_operation() -> list:
 
 
 @pytest.fixture
-def output_list_data_bank_operation_true() -> list:
+def output_data_bank_operation_true() -> list:
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:21:33.419441"},
