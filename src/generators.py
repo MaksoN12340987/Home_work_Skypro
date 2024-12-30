@@ -1,9 +1,11 @@
-def filter_by_currency(list_operations: list = [], currency: str = "") -> list:
-    result = []
+def filter_by_currency(list_operations: list = [], currency: str = ""):
     for i in range(len(list_operations)):
         if list_operations[i].get("operationAmount").get("currency").get("code") == currency:
-            result.append(list_operations[i])
-    return result
+            count += 1
+            if count > len(list_operations):
+                break
+            yield list_operations[i]
+            
 
 def transaction_descriptions():
     pass
@@ -87,5 +89,7 @@ transactions = ([
         }
     ])
 
-print(filter_by_currency(transactions, "USD"))
+usd_transactions = filter_by_currency(transactions, "USD")
 
+for _ in range(5):
+    print(next(usd_transactions))
