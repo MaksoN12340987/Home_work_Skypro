@@ -15,3 +15,11 @@ def test_filter_by_currency_rub(log_operations, result_log_operations_rub):
     usd_transactions = filter_by_currency(log_operations, "RUB")
     for i in range(2):
         assert next(usd_transactions) == result_log_operations_rub[i]
+
+
+def test_generator_card_number(result_generator_card_number):
+    card_number = transaction_descriptions(1, 4)
+    for i in range(4):
+        assert next(card_number) == result_generator_card_number[i]
+    
+    

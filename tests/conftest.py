@@ -221,3 +221,13 @@ def result_log_operations_rub():
             "to": "Счет 14211924144426031657"
         }
     ]
+
+
+@pytest.fixture
+def result_generator_card_number():
+    return [
+        "0000 0000 0000 0001",
+        "0000 0000 0000 0002",
+        "0000 0000 0000 0003",
+        "0000 0000 0000 0004"
+    ]

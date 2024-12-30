@@ -11,6 +11,18 @@ def transaction_descriptions():
     pass
 
 
+def card_number_generator(start: int = 0, stop: int = 0):
+    sample = "0000000000000000"
+    end = stop - start
+    count = 0
+    while start <= stop:
+        sample = sample[:16 - len(str(start))] + str(start)
+        yield sample[:4] + " " + sample[4:8] + " " + sample[9:13] + " " + sample[12:]
+        start += 1
+        if count > end:
+            break
+
+
 transactions = ([
         {
             "id": 939719570,
@@ -89,8 +101,10 @@ transactions = ([
         }
     ])
 
-usd_transactions = filter_by_currency(transactions, "USD")
 
-print(next(usd_transactions))
-print(next(usd_transactions))
-print(next(usd_transactions))
+# time = card_number_generator(1, 4)
+
+# print(next(time))
+# print(next(time))
+# print(next(time))
+# print(next(time))
