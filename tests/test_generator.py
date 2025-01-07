@@ -27,18 +27,15 @@ def test_transaction_descriptions(log_operations, result_discription):
 
 
 # card_number_generator
-def test_generator_card_number_1_4(result_generator_card_number_1_4):
-    card_number = card_number_generator(1, 4)
+@pytest.mark.parametrize("start, stop, expected", [
+    (1, 4, ["0000 0000 0000 0001", "0000 0000 0000 0002", "0000 0000 0000 0003", "0000 0000 0000 0004"]),
+    (99999997, 100000000, ["0000 0000 9999 9997", "0000 0000 9999 9998", "0000 0000 9999 9999", "0000 0001 0000 0000"])
+])
+def test_generator_card_number(start, stop, expected):
+    card_number = card_number_generator(start, stop)
 
     for i in range(4):
-        assert next(card_number) == result_generator_card_number_1_4[i]
-
-
-def test_generator_card_number_99999997(result_generator_card_number_99999997):
-    card_number = card_number_generator(99999997, 100000000)
-
-    for i in range(4):
-        assert next(card_number) == result_generator_card_number_99999997[i]
+        assert next(card_number) == expected[i]
 
 
 # NEGATIVE test
