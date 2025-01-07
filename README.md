@@ -20,6 +20,14 @@
  соответствует указанному значению.
 
 
+## Тестирование 
+В пакете test появились модули тестирования, каждый модуль, согласно названию, тестирует модули программы из пакета src
+
+Для запуска тестирование требуется:
+- библиотека pytest pytest = "^8.3.4"
+- библиотека pytest-cov = "^6.0.0"
+
+
 # Homework project on the implementation of functionality for working with bank data
 
 ### The project implements the function of masking the card number and account number - mask_account_card
@@ -39,3 +47,11 @@ In the widget.py module, the mask_account_card function is created, which accept
 ## New sorting function
 
 The src package now has a filter_by_state function that takes a list of dictionaries and optionally a value for the **state** key (default 'EXECUTED'). The function returns a new list of dictionaries containing only those dictionaries whose **state** key matches the specified value.
+
+
+## Testing
+The test package now has testing modules, each module, as the name suggests, tests program modules from the src package
+
+To run testing, you need:
+- pytest library pytest = "^8.3.4"
+- pytest-cov library = "^6.0.0"
