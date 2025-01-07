@@ -14,10 +14,18 @@
 "Visa Platinum 7000 79** **** 6361"
 "Счет **4305"
 
-## Новый функциона сортировки
+## Новый функционал сортировки
 
 В пакете src появилась функця filter_by_state, которая принимает список словарей и опционально значение для ключа **state** (по умолчанию 'EXECUTED'). Функция возвращает новый список словарей, содержащий только те словари, у которых ключ **state**
  соответствует указанному значению.
+
+
+## Итеративный вывод
+
+В пакет src добавлен модкль generators, в нем реализованны вункции:
+- filter_by_currency принимает на вход список словарей, представляющих транзакции, а возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной (например, USD)
+- transaction_descriptions принимает список словарей с транзакциями и возвращает описание каждой операции по очереди
+- card_number_generator, который выдает номера банковских карт в формате "XXXX XXXX XXXX XXXX", где X — цифра номера карты.
 
 
 ## Тестирование 
@@ -26,6 +34,8 @@
 Для запуска тестирование требуется:
 - библиотека pytest pytest = "^8.3.4"
 - библиотека pytest-cov = "^6.0.0"
+В корневом каталоге присутствует дирректория htmlcov, в которой располагается модуль index.html - в нем отражена статистика по тестированию проекта. А также появился модуль test\generators.py, он тестирует модуль src\generators.py
+Ввведите "pytest --cov", находясь в виртуальном окружении корневого каталога программы, чтобы увидеть колличество тестов, статусы прохождения тестов и покрытие.
 
 
 # Homework project on the implementation of functionality for working with bank data
@@ -49,9 +59,19 @@ In the widget.py module, the mask_account_card function is created, which accept
 The src package now has a filter_by_state function that takes a list of dictionaries and optionally a value for the **state** key (default 'EXECUTED'). The function returns a new list of dictionaries containing only those dictionaries whose **state** key matches the specified value.
 
 
+## Iterative output
+
+A module generators has been added to the src package, it implements the following functions:
+- filter_by_currency takes a list of dictionaries representing transactions as input and returns an iterator that outputs transactions one by one, where the transaction currency matches the specified one (for example, USD)
+- transaction_descriptions takes a list of dictionaries with transactions and returns a description of each transaction in turn
+- card_number_generator, which outputs bank card numbers in the format "XXXX XXXX XXXX XXXX", where X is the card number digit.
+
+
 ## Testing
+
 The test package now has testing modules, each module, as the name suggests, tests program modules from the src package
 
 To run testing, you need:
 - pytest library pytest = "^8.3.4"
 - pytest-cov library = "^6.0.0"
+The root directory contains the htmlcov directory, which contains the index.html module - it displays the project testing statistics. Also, the test\generators.py module has appeared, it tests the src\generators.py module. Enter "pytest --cov" while in the virtual environment of the program's root directory to see the number of tests, test statuses, and coverage.
