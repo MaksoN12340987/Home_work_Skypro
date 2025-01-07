@@ -7,8 +7,11 @@ def filter_by_currency(list_operations: list = [], currency: str = ""):
                 break
             
 
-def transaction_descriptions():
-    pass
+def transaction_descriptions(list_operation: list = []):
+    i = 0
+    while list_operation:
+        yield list_operation[i].get("description")
+        i += 1
 
 
 def card_number_generator(start: int = 0, stop: int = 0):

@@ -224,10 +224,31 @@ def result_log_operations_rub():
 
 
 @pytest.fixture
-def result_generator_card_number():
+def result_generator_card_number_1_4():
     return [
         "0000 0000 0000 0001",
         "0000 0000 0000 0002",
         "0000 0000 0000 0003",
         "0000 0000 0000 0004"
+    ]
+
+
+@pytest.fixture
+def result_generator_card_number_99999997():
+    return [
+        "0000 0000 9999 9997",
+        "0000 0000 9999 9998",
+        "0000 0000 9999 9999",
+        "0000 0001 0000 0000"
+    ]
+
+
+@pytest.fixture
+def result_discription():
+    return [
+        "Перевод организации",
+        "Перевод со счета на счет",
+        "Перевод со счета на счет",
+        "Перевод с карты на карту",
+        "Перевод организации"
     ]
