@@ -1,7 +1,7 @@
 import pytest
 
 
-from src.generators import filter_by_currency, transaction_descriptions
+from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 
 
 
@@ -18,7 +18,7 @@ def test_filter_by_currency_rub(log_operations, result_log_operations_rub):
 
 
 def test_generator_card_number(result_generator_card_number):
-    card_number = transaction_descriptions(1, 4)
+    card_number = card_number_generator(1, 4)
     for i in range(4):
         assert next(card_number) == result_generator_card_number[i]
     
