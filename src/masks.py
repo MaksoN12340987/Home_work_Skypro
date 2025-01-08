@@ -1,17 +1,7 @@
-from src.decorators import log, predicate_not_none, predicate_is_str
-
-
-
 # Functional part
-@log(
-    predicate_is_str, "Невозможно продолжить, передайте строку",
-    predicate_not_none, "Невозможно продолжить с типом элемента None"
-)
 def get_mask_card_number(card_number: str = "", start: int = 0) -> str:
     """принимает на вход номер карты, индекс первой цыфры номера карты и возвращает маску номера
     по правилу User Name XXXX XX** **** XXXX"""
-    # if start == None:
-    #     raise ValueError("Невозможно найти элемент None")
     out_format = card_number[:start]
     split = start + 3
     temp = range(start + 6, start + 12)
@@ -32,14 +22,9 @@ def get_mask_card_number(card_number: str = "", start: int = 0) -> str:
                         split += 4
     return out_format
 
-@log(
-    predicate_is_str, "Невозможно продолжить, передайте строку",
-    predicate_not_none, "Невозможно продолжить с типом элемента None"
-)
+
 def get_mask_account(bank_account: str = "", start: int = 0) -> str:
     """принимает на вход номер счета и возвращает маску номера по правилу Name **XXXX"""
-    # if start == None:
-    #     raise ValueError("Невозможно найти элемент None")
     out_format = ""
 
     out_format += bank_account[:start] + "**" + bank_account[-4:]
