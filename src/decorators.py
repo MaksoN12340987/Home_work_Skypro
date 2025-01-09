@@ -1,11 +1,16 @@
 from functools import wraps
 
 
-def log(predicate_str, error_mesage_type, filename: str = ""):
+def log(predicate, error_mesage_type, filename: str = ""):
+    '''Декоратор log принимает функцию предикат, сообщение об ошибке и
+    путь к файлу. Функция предикат может проверять входные данные функции.
+    В случае ошибки выводится сообщение error_mesage_type.
+    Декоратор отмечает начало работы функции, выводит результат и
+    сообщает об окончании работы'''
     def decorator_time_name_error(function):
         @wraps(function)
         def execution(operand):
-            if not predicate_str(operand):
+            if not predicate(operand):
                 with open(filename, "a") as file:
                     file.write(f"{function} ERROR:\n{error_mesage_type}\nInputs: {operand}\n")
                 raise ValueError(error_mesage_type)
