@@ -1,12 +1,11 @@
-from src.decorators import log, predicate_not_none, predicate_is_str
+from src.decorators import log, predicate_is_str
 from src.masks import get_mask_account, get_mask_card_number
 
 
 @log(
     predicate_is_str,
     "Невозможно продолжить, передайте строку",
-    predicate_not_none,
-    "Невозможно продолжить с типом элемента None"
+    ".log"
 )
 def mask_account_card(to_mask: str = "") -> str:
     """Принимает строку с именем держателя и номером карты или номер счёта

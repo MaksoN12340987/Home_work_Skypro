@@ -1,6 +1,3 @@
-from src.decorators import log, predicate_not_none, predicate_is_str
-
-
 # Bank transactions sorting function
 def filter_by_state(to_sort: list = [], state_key: str = "EXECUTED") -> list:
     """Принимает список словарей и ключ: state (по умолчанию 'EXECUTED').
