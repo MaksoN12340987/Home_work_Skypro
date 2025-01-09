@@ -1,7 +1,12 @@
 import pytest
 
-import src.processing
-import src.widget
+from src.widget import mask_account_card
+from src.decorators import log, predicate_is_str
+
+
+@log(predicate_is_str, "Невозможно продолжить, передайте строку", ".log")
+def print_result_to_file(to_mask):
+    return mask_account_card(to_mask)
 
 
 @pytest.mark.parametrize(
@@ -14,4 +19,4 @@ import src.widget
     ],
 )
 def test_mask_account_card(vareble, expected):
-    assert src.widget.mask_account_card(vareble) == expected
+    assert print_result_to_file(vareble) == expected

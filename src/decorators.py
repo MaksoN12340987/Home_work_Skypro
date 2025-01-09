@@ -16,11 +16,13 @@ def log(predicate_str, error_mesage_type, filename: str = ""):
                     file.write(f"{function} ok\n")
 
             else:
-                print(f"Start of the {function}")
+                print(f"Start " + f"{function}"[1:-23])
                 resault = print(function(operand))
-                print("The function has finished its work")
+                print("The function has completed")
             return resault
+
         return execution
+
     return decorator_time_name_error
 
 

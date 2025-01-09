@@ -27,10 +27,17 @@ def test_transaction_descriptions(log_operations, result_discription):
 
 
 # card_number_generator
-@pytest.mark.parametrize("start, stop, expected", [
-    (1, 4, ["0000 0000 0000 0001", "0000 0000 0000 0002", "0000 0000 0000 0003", "0000 0000 0000 0004"]),
-    (99999997, 100000000, ["0000 0000 9999 9997", "0000 0000 9999 9998", "0000 0000 9999 9999", "0000 0001 0000 0000"])
-])
+@pytest.mark.parametrize(
+    "start, stop, expected",
+    [
+        (1, 4, ["0000 0000 0000 0001", "0000 0000 0000 0002", "0000 0000 0000 0003", "0000 0000 0000 0004"]),
+        (
+            99999997,
+            100000000,
+            ["0000 0000 9999 9997", "0000 0000 9999 9998", "0000 0000 9999 9999", "0000 0001 0000 0000"],
+        ),
+    ],
+)
 def test_generator_card_number(start, stop, expected):
     card_number = card_number_generator(start, stop)
 

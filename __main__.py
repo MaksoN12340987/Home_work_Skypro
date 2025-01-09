@@ -2,10 +2,10 @@ from src.decorators import log, predicate_is_str
 from src.widget import mask_account_card
 
 if __name__ == "__main__":
+
     @log(predicate_is_str, "Невозможно продолжить, передайте строку")
     def print_result_to_console(to_mask):
         return mask_account_card(to_mask)
-
 
     @log(predicate_is_str, "Невозможно продолжить, передайте строку", ".log")
     def print_result_to_file(to_mask):
