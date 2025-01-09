@@ -20,6 +20,11 @@
  соответствует указанному значению.
 
 
+## Добавлено логирование файла widget.py
+
+По умолчанию, в файл .log выводятся информация о выполнении функции, а при возникновании ошибок, информация об ошибке и входные данные
+
+
 ## Тестирование 
 В пакете test появились модули тестирования, каждый модуль, согласно названию, тестирует модули программы из пакета src
 
@@ -44,9 +49,15 @@ In the widget.py module, the mask_account_card function is created, which accept
 "Visa Platinum 7000 79** **** 6361"
 "Account **4305"
 
+
 ## New sorting function
 
 The src package now has a filter_by_state function that takes a list of dictionaries and optionally a value for the **state** key (default 'EXECUTED'). The function returns a new list of dictionaries containing only those dictionaries whose **state** key matches the specified value.
+
+
+## Added logging of the widget.py file
+
+By default, information about the function execution is output to the .log file, and if errors occur, information about the error and input data
 
 
 ## Testing
