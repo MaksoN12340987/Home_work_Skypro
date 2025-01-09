@@ -28,6 +28,11 @@
 - card_number_generator, который выдает номера банковских карт в формате "XXXX XXXX XXXX XXXX", где X — цифра номера карты.
 
 
+## Добавлено логирование файла widget.py
+
+По умолчанию, в файл .log выводятся информация о выполнении функции, а при возникновании ошибок, информация об ошибке и входные данные
+
+
 ## Тестирование 
 В пакете test появились модули тестирования, каждый модуль, согласно названию, тестирует модули программы из пакета src
 
@@ -54,6 +59,7 @@ In the widget.py module, the mask_account_card function is created, which accept
 "Visa Platinum 7000 79** **** 6361"
 "Account **4305"
 
+
 ## New sorting function
 
 The src package now has a filter_by_state function that takes a list of dictionaries and optionally a value for the **state** key (default 'EXECUTED'). The function returns a new list of dictionaries containing only those dictionaries whose **state** key matches the specified value.
@@ -65,6 +71,10 @@ A module generators has been added to the src package, it implements the followi
 - filter_by_currency takes a list of dictionaries representing transactions as input and returns an iterator that outputs transactions one by one, where the transaction currency matches the specified one (for example, USD)
 - transaction_descriptions takes a list of dictionaries with transactions and returns a description of each transaction in turn
 - card_number_generator, which outputs bank card numbers in the format "XXXX XXXX XXXX XXXX", where X is the card number digit.
+
+## Added logging of the widget.py file
+
+By default, information about the function execution is output to the .log file, and if errors occur, information about the error and input data
 
 
 ## Testing
