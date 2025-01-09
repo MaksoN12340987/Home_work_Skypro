@@ -1,7 +1,6 @@
 from functools import wraps
 
 
-
 def log(predicate_str, error_mesage_type, filename: str = ""):
     def decorator_time_name_error(function):
         @wraps(function)
@@ -20,7 +19,9 @@ def log(predicate_str, error_mesage_type, filename: str = ""):
                 resault = function(operand)
                 print(f"Function is {function}\n{resault}")
             return resault
+
         return execution
+
     return decorator_time_name_error
 
 
