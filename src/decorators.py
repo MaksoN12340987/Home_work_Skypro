@@ -6,23 +6,24 @@ def log(predicate, error_mesage_type, filename: str = ""):
     путь к файлу. Функция предикат может проверять входные данные функции.
     В случае ошибки выводится сообщение error_mesage_type.
     Декоратор отмечает начало работы функции, выводит результат и
-      сообщает об окончании работы'''
+    сообщает об окончании работы'''
     def decorator_time_name_error(function):
         @wraps(function)
-        def execution(operand):
-            if not predicate(operand):
+        def execution(*args):
+            if not predicate(*args):
                 with open(filename, "a") as file:
-                    file.write(f"{function} ERROR:\n{error_mesage_type}\nInputs: {operand}\n")
+                    file.write(f"{function} ERROR:\n{error_mesage_type}\nInputs: {args}\n")
                 raise ValueError(error_mesage_type)
 
-            elif filename != "":
-                resault = function(operand)
+            if filename != "":
+                resault = function(*args)
                 with open(filename, "a") as file:
                     file.write(f"{function} ok\n")
 
             else:
                 print(f"Start " + f"{function}"[1:-23])
-                resault = print(function(operand))
+                resault = function(*args)
+                print(resault)
                 print("The function has completed")
             return resault
 
@@ -32,4 +33,8 @@ def log(predicate, error_mesage_type, filename: str = ""):
 
 
 def predicate_is_str(is_str):
-    return isinstance(is_str, str)
+    return type(is_str) == str
+
+
+def predicate_is_list(is_list, is_str = None):
+    return type(is_list) == list
