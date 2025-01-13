@@ -2,7 +2,7 @@ from src.masks import get_mask_account, get_mask_card_number
 from src.decorators import log, predicate_is_str
 
 
-@log(predicate_is_str, "Невозможно продолжить, передайте строку", "widget.log")
+@log(predicate_is_str, "Невозможно продолжить, передайте строку", ".log/widget.log")
 def mask_account_card(to_mask: str = "") -> str:
     """Принимает строку с именем держателя и номером карты или номер счёта
     и возвращает Имя держателя и замаскированный номер карты или номер счёта"""
