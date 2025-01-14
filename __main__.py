@@ -32,4 +32,4 @@ if __name__ == "__main__":
     print_result_to_console(bank_operation)
     print_result_to_console(bank_operation, "CANCELED")
 
-    print(conversion_from_usd_eur_in_rub(100, "USD", "https://api.apilayer.com/exchangerates_data/convert"))
+    print(conversion_from_usd_eur_in_rub(100, "USD", "https://api.apilaye.com/exchangerates_data/convert"))
