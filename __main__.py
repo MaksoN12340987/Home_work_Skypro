@@ -1,4 +1,5 @@
 from src.decorators import log, predicate_is_list, predicate_is_str
+from src.external_api import conversion_from_usd_eur_in_rub
 from src.processing import filter_by_state
 from src.widget import mask_account_card
 
@@ -30,3 +31,5 @@ if __name__ == "__main__":
     ]
     print_result_to_console(bank_operation)
     print_result_to_console(bank_operation, "CANCELED")
+
+    print(conversion_from_usd_eur_in_rub(100, "USD", "https://api.apilayer.com/exchangerates_data/convert"))

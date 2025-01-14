@@ -22,7 +22,7 @@ def log(predicate, error_mesage_type, filename: str = ""):
                     file.write(f"{function} ok\n")
 
             else:
-                print(f"Start " + f"{function}"[1:-23])
+                print("Start " + f"{function}"[1:-23])
                 resault = function(*args)
                 print(resault)
                 print("The function has completed")
