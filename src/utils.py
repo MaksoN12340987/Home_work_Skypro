@@ -4,6 +4,8 @@ from src.external_api import conversion_from_usd_eur_in_rub
 
 
 def conversion_json_to_object(file_name="") -> list:
+    '''Принимает на вход путь до файла .json, который читает и
+    возвращает список'''
     try:
         with open(file_name, "r") as f:
             data_bank_operation = json.load(f)
@@ -15,11 +17,12 @@ def conversion_json_to_object(file_name="") -> list:
 
 
 def transaction_amount(dict_transaction: dict = {}) -> float:
+    '''Принимает на вход словарь транзакции, определяет тип валюты и
+    возвращает сумму транзакции'''
     currency = dict_transaction.get("operationAmount").get("currency").get("code")
     transaction_amount = float(dict_transaction.get("operationAmount").get("amount"))
 
     if currency != "RUB":
-        print(f"{transaction_amount} {currency}")
         return conversion_from_usd_eur_in_rub(transaction_amount, currency)
     else:
         return transaction_amount
