@@ -1,6 +1,5 @@
 import pytest
 
-
 from src.decorators import log, predicate_is_str
 from src.widget import mask_account_card
 

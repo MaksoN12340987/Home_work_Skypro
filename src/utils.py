@@ -1,7 +1,9 @@
 import json
 
+from external_api import conversion_from_usd_eur_in_rub
 
-def convert_json_to_object(file_name=""):
+
+def convert_json_to_object(file_name="") -> list:
     try:
         with open(file_name, "r") as f:
             data_bank_operation = json.load(f)
@@ -12,5 +14,11 @@ def convert_json_to_object(file_name=""):
     return data_bank_operation
 
 
-def conversion_from_usd_eur_in_rub():
-    pass
+def transaction_amount(dict_transaction:dict = {}) -> float:
+    currency = dict_transaction.get("operationAmount").get("currency").get("code")
+    transaction_amount = dict_transaction.get("operationAmount").get("amount")
+    
+    if currency != "RUB":
+        return conversion_from_usd_eur_in_rub(transaction_amount, currency)
+    else:
+        return transaction_amount

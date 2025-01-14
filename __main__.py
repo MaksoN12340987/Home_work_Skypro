@@ -1,7 +1,6 @@
-from src.decorators import log, predicate_is_str, predicate_is_list
+from src.decorators import log, predicate_is_list, predicate_is_str
 from src.processing import filter_by_state
 from src.widget import mask_account_card
-
 
 if __name__ == "__main__":
 
