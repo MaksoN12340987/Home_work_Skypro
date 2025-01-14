@@ -23,9 +23,14 @@ def test_conversion_from_usd_eur_in_rub_valueError(sum, key, expected):
 @pytest.mark.parametrize(
     "transaction_sum, currency, url, mesage",
     [
-        (10, "RUB", "https://api.apilayer.com/exchangerates_data/convert", '''Укажите валюту в нужном формате "USD" или "EUR"'''),
-        ("A", "EUR", "https://api.apilayer.com/exchangerates_data/convert", "Error, invalid data or not correct url")
-    ]
+        (
+            10,
+            "RUB",
+            "https://api.apilayer.com/exchangerates_data/convert",
+            '''Укажите валюту в нужном формате "USD" или "EUR"''',
+        ),
+        ("A", "EUR", "https://api.apilayer.com/exchangerates_data/convert", "Error, invalid data or not correct url"),
+    ],
 )
 def test_conversion_from_usd_eur_in_rub_err_invalid(transaction_sum, currency, url, mesage):
     with pytest.raises(ValueError, match=mesage):

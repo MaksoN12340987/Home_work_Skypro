@@ -6,9 +6,7 @@ from dotenv import load_dotenv
 
 
 def conversion_from_usd_eur_in_rub(
-    transaction_sum = 0,
-    currency = "",
-    url="https://api.apilayer.com/exchangerates_data/convert"
+    transaction_sum=0, currency="", url="https://api.apilayer.com/exchangerates_data/convert"
 ) -> float:
     """Принимает на вход сумму в валюте и наименование валюты "RUB" или "USD"
     Возвращает число типа "float" - валюта, конвертированная в рубли
