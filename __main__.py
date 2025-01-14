@@ -1,6 +1,7 @@
 from src.decorators import log, predicate_is_str, predicate_is_list
-from src.processing import filter_by_state, sort_by_date
+from src.processing import filter_by_state
 from src.widget import mask_account_card
+
 
 if __name__ == "__main__":
 
@@ -8,7 +9,6 @@ if __name__ == "__main__":
     @log(predicate_is_str, "Невозможно продолжить, передайте строку")
     def print_result_to_console(to_mask):
         return mask_account_card(to_mask)
-
 
     # print result to console
     print_result_to_console("Visa Platinum 7000792289606361")
@@ -18,11 +18,9 @@ if __name__ == "__main__":
     mask_account_card("Visa Platinum 7000792289606361")
     mask_account_card("Счет 73654108430135874305")
 
-
     @log(predicate_is_list, "Невозможно продолжить, передайте список словарей")
-    def print_result_to_console(list, key = "EXECUTED"):
+    def print_result_to_console(list, key="EXECUTED"):
         return filter_by_state(list, key)
-
 
     bank_operation = [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
