@@ -1,7 +1,6 @@
-from unittest.mock import patch, Mock
+from unittest.mock import patch
 
 import pytest
-import requests
 
 from src.utils import conversion_json_to_object, transaction_amount
 
@@ -53,6 +52,11 @@ def test_conversion_json_to_object(log_operations, key, expected):
 )
 def test_transaction_amount(dict_transaction, expected):
     assert str(type(transaction_amount(dict_transaction))) == expected
+
+
+def test_transaction_amount_none():
+    with pytest.raises(ValueError):
+        assert transaction_amount({}) == '''Укажите валюту в нужном формате "USD" или "EUR"'''
 
 
 @patch("requests.get")

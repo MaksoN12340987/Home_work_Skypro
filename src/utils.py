@@ -19,8 +19,8 @@ def conversion_json_to_object(file_name="") -> list:
 def transaction_amount(dict_transaction: dict = {}) -> float:
     """Принимает на вход словарь транзакции, определяет тип валюты и
     возвращает сумму транзакции"""
-    currency = dict_transaction.get("operationAmount").get("currency").get("code")
-    transaction_amount = float(dict_transaction.get("operationAmount").get("amount"))
+    currency = dict_transaction.get("operationAmount", {}).get("currency", {}).get("code", None)
+    transaction_amount = dict_transaction.get("operationAmount", {}).get("amount", None)
 
     if currency != "RUB":
         return conversion_from_usd_eur_in_rub(transaction_amount, currency)

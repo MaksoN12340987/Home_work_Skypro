@@ -2,7 +2,6 @@ from src.decorators import log, predicate_is_list, predicate_is_str
 from src.external_api import conversion_from_usd_eur_in_rub
 from src.processing import filter_by_state
 from src.widget import mask_account_card
-import json
 
 if __name__ == "__main__":
 
@@ -12,12 +11,12 @@ if __name__ == "__main__":
         return mask_account_card(to_mask)
 
     # print result to console
-    # print_result_to_console("Visa Platinum 7000792289606361")
-    # print_result_to_console("Счет 73654108430135874305")
+    print_result_to_console("Visa Platinum 7000792289606361")
+    print_result_to_console("Счет 73654108430135874305")
 
     # print result to file widget.log
-    # mask_account_card("Visa Platinum 7000792289606361")
-    # mask_account_card("Счет 73654108430135874305")
+    mask_account_card("Visa Platinum 7000792289606361")
+    mask_account_card("Счет 73654108430135874305")
 
     @log(predicate_is_list, "Невозможно продолжить, передайте список словарей")
     def print_result_to_console(list, key="EXECUTED"):
@@ -30,18 +29,7 @@ if __name__ == "__main__":
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:21:33.419441"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:20:00.419441"},
     ]
-    # print_result_to_console(bank_operation)
-    # print_result_to_console(bank_operation, "CANCELED")
+    print_result_to_console(bank_operation)
+    print_result_to_console(bank_operation, "CANCELED")
 
-    # print(conversion_from_usd_eur_in_rub(100, "USD"))
-    data = {
-        "date": "2025-01-14",
-        "info": {"rate": 103.374534, "timestamp": 1736890683},
-        "query": {"amount": 10, "from": "USD", "to": "RUB"},
-        "result": 1033.74534,
-        "success": "true",
-    }
-    r = json.dumps(data)
-    print(type(r))
-    result = json.loads(r).get("result")
-    print(result)
+    print(conversion_from_usd_eur_in_rub(100, "USD"))

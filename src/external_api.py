@@ -16,28 +16,21 @@ def conversion_from_usd_eur_in_rub(
     Также имеет 1 доп параметр:
     - url ссылка на апи"""
 
-    if currency == "USD":
-        payload = {"to": "RUB", "from": "USD", "amount": str(transaction_sum)}
-    elif currency == "EUR":
-        payload = {"to": "RUB", "from": "EUR", "amount": str(transaction_sum)}
+    if currency == "USD" or  currency == "EUR":
+        payload = {"to": "RUB", "from": currency, "amount": str(transaction_sum)}
+        
+        try:
+            load_dotenv()
+            api_key = os.getenv("API_KEY")
+            headers = {"apikey": api_key}
+            temp = requests.get(url, headers=headers, params=payload)
+            with open(filename, "a") as file:
+                file.write(f"OUTPUT DATA:\n{temp.json()["result"]}\n")
+            return float(temp.json()["result"])
+
+        except Exception:
+            with open(filename, "a") as file:
+                file.write(f"ERROR:\n{temp.json()}\n")
+            raise ValueError("Error, invalid data or not correct url")
     else:
         raise ValueError('''Укажите валюту в нужном формате "USD" или "EUR"''')
-
-    try:
-        load_dotenv()
-        api_key = os.getenv("API_KEY")
-        headers = {"apikey": api_key}
-        temp = requests.get(url, headers=headers, params=payload)
-        with open(filename, "a") as file:
-            file.write(f"OUTPUT DATA:\n{temp.json()["result"]}\n")
-        return float(temp.json()["result"])
-
-    except Exception:
-        with open(filename, "a") as file:
-            file.write(f"ERROR:\n{temp.json()}\n")
-        raise ValueError("Error, invalid data or not correct url")
-
-    if not result:
-        with open(filename, "a") as file:
-            file.write(f"ERROR:\n{temp.json()}\n")
-        raise ValueError("Error, invalid data or not correct url")

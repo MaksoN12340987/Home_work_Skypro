@@ -159,6 +159,11 @@ def return_api():
 
 
 @pytest.fixture
+def return_api_error():
+    return "error"
+
+
+@pytest.fixture
 def operations_json():
     return [
         {
