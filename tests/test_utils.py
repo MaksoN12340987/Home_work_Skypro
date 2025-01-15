@@ -1,4 +1,7 @@
+from unittest.mock import patch, Mock
+
 import pytest
+import requests
 
 from src.utils import conversion_json_to_object, transaction_amount
 
@@ -39,7 +42,7 @@ def test_conversion_json_to_object(log_operations, key, expected):
                 "id": 619287771,
                 "state": "EXECUTED",
                 "date": "2019-08-19T16:30:41.967497",
-                "operationAmount": {"amount": "81150.87", "currency": {"name": "USD", "code": "USD"}},
+                "operationAmount": {"amount": "81150", "currency": {"name": "руб.", "code": "RUB"}},
                 "description": "Перевод организации",
                 "from": "Счет 17691325653939384901",
                 "to": "Счет 49304996510329747621",
@@ -52,4 +55,8 @@ def test_transaction_amount(dict_transaction, expected):
     assert str(type(transaction_amount(dict_transaction))) == expected
 
 
-# The expected result is negative
+@patch("requests.get")
+def test_transaction_amount_usd(mock_api, return_api, operations_json):
+    mock_api.return_value.json.return_value = return_api
+    assert str(type(transaction_amount(operations_json[2]))) == "<class 'float'>"
+    mock_api.assert_called()

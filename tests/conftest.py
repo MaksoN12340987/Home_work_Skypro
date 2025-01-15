@@ -22,39 +22,6 @@ def input_list_to_filter() -> list:
     ]
 
 
-@pytest.fixture
-def bank_operation() -> list:
-    return [
-        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-        {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:21:33.419441"},
-        {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:20:00.419441"},
-    ]
-
-
-@pytest.fixture
-def output_data_bank_operation_true() -> list:
-    return [
-        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-        {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:21:33.419441"},
-        {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:20:00.419441"},
-        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-    ]
-
-
-@pytest.fixture
-def output_list_data_bank_operation_false() -> list:
-    return [
-        {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
-        {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
-        {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:20:00.419441"},
-        {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:21:33.419441"},
-        {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
-    ]
-
-
 # Test fixture generators
 @pytest.fixture
 def log_operations():
@@ -170,11 +137,6 @@ def result_generator_card_number_1_4():
 
 
 @pytest.fixture
-def result_generator_card_number_99999997():
-    return ["0000 0000 9999 9997", "0000 0000 9999 9998", "0000 0000 9999 9999", "0000 0001 0000 0000"]
-
-
-@pytest.fixture
 def result_discription():
     return [
         "Перевод организации",
@@ -183,6 +145,17 @@ def result_discription():
         "Перевод с карты на карту",
         "Перевод организации",
     ]
+
+
+@pytest.fixture
+def return_api():
+    return {
+        "date": "2025-01-14",
+        "info": {"rate": 103.374534, "timestamp": 1736890683},
+        "query": {"amount": 10, "from": "USD", "to": "RUB"},
+        "result": 1033.74534,
+        "success": "true",
+    }
 
 
 @pytest.fixture
