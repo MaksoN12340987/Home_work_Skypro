@@ -1,4 +1,3 @@
-import json
 import os
 
 import requests
@@ -16,9 +15,9 @@ def conversion_from_usd_eur_in_rub(
     Также имеет 1 доп параметр:
     - url ссылка на апи"""
 
-    if currency == "USD" or  currency == "EUR":
+    if currency == "USD" or currency == "EUR":
         payload = {"to": "RUB", "from": currency, "amount": str(transaction_sum)}
-        
+
         try:
             load_dotenv()
             api_key = os.getenv("API_KEY")
