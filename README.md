@@ -3,6 +3,9 @@
 ### В прокте реализована функция маскировки номера карты и номера счёта - mask_account_card
 
 ## Для работы потребуется виртуальное окружение poetry и python версии 3.13 и выше
+python = "^3.12"
+python-dotenv = "^1.0.1"
+
 
 ### Пакет src:
 В модуле widget.py создана функция mask_account_card, которая принимает строку с именем держателя и номером карты или номер счёта и возвращает Имя держателя и замаскированный номер карты или номер счёта
@@ -48,6 +51,9 @@
 ### The project implements the function of masking the card number and account number - mask_account_card
 
 ## To work, you will need the poetry virtual environment and python version 3.13 and higher
+python = "^3.12"
+python-dotenv = "^1.0.1"
+
 
 ### Src package:
 In the widget.py module, the mask_account_card function is created, which accepts a string with the cardholder name and card number or account number and returns the Cardholder name and the masked card number or account number
