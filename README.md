@@ -1,13 +1,15 @@
 # Проект домашней работы по реализации фукционала работы с банковскими данными
 
-### В прокте реализована функция маскировки номера карты и номера счёта - mask_account_card
 
-## Для работы потребуется виртуальное окружение poetry и python версии 3.13 и выше
-python = "^3.12"
-python-dotenv = "^1.0.1"
+## Запуск проекта
+### Требование для запуска:
+python - v3.12
+python-dotenv - v1.0.1
+requests - v2.32.3
+logging - v0.4.9.6
 
 
-### Пакет src:
+## Пакет src:
 В модуле widget.py создана функция mask_account_card, которая принимает строку с именем держателя и номером карты или номер счёта и возвращает Имя держателя и замаскированный номер карты или номер счёта
 Формат передачи:
 *"Visa Platinum 7000792289606361"*
@@ -17,7 +19,7 @@ python-dotenv = "^1.0.1"
 "Visa Platinum 7000 79** **** 6361"
 "Счет **4305"
 
-## Новый функционал сортировки
+### Новый функционал сортировки
 
 В пакете src появилась функця filter_by_state, которая принимает список словарей и опционально значение для ключа **state** (по умолчанию 'EXECUTED'). Функция возвращает новый список словарей, содержащий только те словари, у которых ключ **state**
  соответствует указанному значению.
@@ -31,9 +33,14 @@ python-dotenv = "^1.0.1"
 - card_number_generator, который выдает номера банковских карт в формате "XXXX XXXX XXXX XXXX", где X — цифра номера карты.
 
 
-## Добавлено логирование файла widget.py
+## Добавлено логирование модулей
 
 По умолчанию, в файл .log выводятся информация о выполнении функции, а при возникновании ошибок, информация об ошибке и входные данные
+
+Установка вровня логирования производится в каждом модуле, установив параметр:
+'''
+.setLevel(logging.INFO)
+'''
 
 
 ## Тестирование 
@@ -42,52 +49,12 @@ python-dotenv = "^1.0.1"
 Для запуска тестирование требуется:
 - библиотека pytest pytest = "^8.3.4"
 - библиотека pytest-cov = "^6.0.0"
+
 В корневом каталоге присутствует дирректория htmlcov, в которой располагается модуль index.html - в нем отражена статистика по тестированию проекта. А также появился модуль test\generators.py, он тестирует модуль src\generators.py
-Ввведите "pytest --cov", находясь в виртуальном окружении корневого каталога программы, чтобы увидеть колличество тестов, статусы прохождения тестов и покрытие.
+Ввведите:
+'''
+"pytest --cov
+'''
+в виртуальном окружении корневого каталога программы, чтобы увидеть колличество тестов, статусы прохождения тестов и покрытие.
 
 
-# Homework project on the implementation of functionality for working with bank data
-
-### The project implements the function of masking the card number and account number - mask_account_card
-
-## To work, you will need the poetry virtual environment and python version 3.13 and higher
-python = "^3.12"
-python-dotenv = "^1.0.1"
-
-
-### Src package:
-In the widget.py module, the mask_account_card function is created, which accepts a string with the cardholder name and card number or account number and returns the Cardholder name and the masked card number or account number
-*Transmission format:*
-"Visa Platinum 7000792289606361"
-"Account 73654108430135874305"
-
-*Output format:*
-"Visa Platinum 7000 79** **** 6361"
-"Account **4305"
-
-
-## New sorting function
-
-The src package now has a filter_by_state function that takes a list of dictionaries and optionally a value for the **state** key (default 'EXECUTED'). The function returns a new list of dictionaries containing only those dictionaries whose **state** key matches the specified value.
-
-
-## Iterative output
-
-A module generators has been added to the src package, it implements the following functions:
-- filter_by_currency takes a list of dictionaries representing transactions as input and returns an iterator that outputs transactions one by one, where the transaction currency matches the specified one (for example, USD)
-- transaction_descriptions takes a list of dictionaries with transactions and returns a description of each transaction in turn
-- card_number_generator, which outputs bank card numbers in the format "XXXX XXXX XXXX XXXX", where X is the card number digit.
-
-## Added logging of the widget.py file
-
-By default, information about the function execution is output to the .log file, and if errors occur, information about the error and input data
-
-
-## Testing
-
-The test package now has testing modules, each module, as the name suggests, tests program modules from the src package
-
-To run testing, you need:
-- pytest library pytest = "^8.3.4"
-- pytest-cov library = "^6.0.0"
-The root directory contains the htmlcov directory, which contains the index.html module - it displays the project testing statistics. Also, the test\generators.py module has appeared, it tests the src\generators.py module. Enter "pytest --cov" while in the virtual environment of the program's root directory to see the number of tests, test statuses, and coverage.
