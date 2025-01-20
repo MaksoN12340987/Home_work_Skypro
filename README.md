@@ -30,7 +30,7 @@ python .\__main__.py
 
 Также у этого модуля имеется функция ```transaction_amount```, которая принимает на вход словарь транзакции, определяет тип валюты и возвращает сумму транзакциию
 Функция ```transaction_amount``` связана с модулем __Home_work_Skypro\src\external_api.py__, с функцией :
-- conversion_from_usd_eur_in_rub
+- conversion_from_usd_eur_in_rub\
 Которая умеет:
 - [X] gринимать на вход сумму в валюте 
 - [X] наименование валюты "RUB" или "USD"
@@ -107,7 +107,7 @@ Can convert data from a file to a Python object using the path passed to the fun
 
 This module also has a function ```transaction_amount```, which takes a transaction dictionary as input, determines the currency type and returns the transaction amount
 The function ```transaction_amount``` is associated with the module __Home_work_Skypro\src\external_api.py__, with the function:
-- conversion_from_usd_eur_in_rub
+- conversion_from_usd_eur_in_rub\
 Which can:
 - [X] accept an amount in currency as input
 - [X] currency name "RUB" or "USD"
