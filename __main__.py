@@ -1,7 +1,7 @@
-from src.decorators import log, predicate_is_list, predicate_is_str
-from src.utils import conversion_json_to_object
-from src.processing import filter_by_state
-from src.widget import mask_account_card
+# from src.decorators import log, predicate_is_list, predicate_is_str
+# from src.utils import conversion_json_to_object
+# from src.processing import filter_by_state
+# from src.widget import mask_account_card
 from src.masks import get_mask_card_number, get_mask_account
 
 if __name__ == "__main__":
@@ -34,5 +34,5 @@ if __name__ == "__main__":
     # print_result_to_console(bank_operation, "CANCELED")
 
     # 
-    print(get_mask_card_number)
-    print(get_mask_account)
+    print(get_mask_card_number("", 3))
+    print(get_mask_account("", 3))
