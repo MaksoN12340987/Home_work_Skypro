@@ -32,10 +32,10 @@ python .\__main__.py
 Функция ```transaction_amount``` связана с модулем __Home_work_Skypro\src\external_api.py__, с функцией :
 - conversion_from_usd_eur_in_rub\
 Которая умеет:
-- [X] gринимать на вход сумму в валюте 
-- [X] наименование валюты "RUB" или "USD"
-- [X] возвращать число типа "float" - валюта, конвертированная в рубли
-- [X] также имеет 1 доп параметр:- url ссылка на апи
+    - [X] gринимать на вход сумму в валюте 
+    - [X] наименование валюты "RUB" или "USD"
+    - [X] возвращать число типа "float" - валюта, конвертированная в рубли
+    - [X] также имеет 1 доп параметр:- url ссылка на апи
 
 ### Новый функционал сортировки
 
@@ -109,10 +109,10 @@ This module also has a function ```transaction_amount```, which takes a transact
 The function ```transaction_amount``` is associated with the module __Home_work_Skypro\src\external_api.py__, with the function:
 - conversion_from_usd_eur_in_rub\
 Which can:
-- [X] accept an amount in currency as input
-- [X] currency name "RUB" or "USD"
-- [X] return a "float" number - currency converted to rubles
-- [X] also has 1 additional parameter:- url link to api
+    - [X] accept an amount in currency as input
+    - [X] currency name "RUB" or "USD"
+    - [X] return a "float" number - currency converted to rubles
+    - [X] also has 1 additional parameter:- url link to api
 
 ### New sorting functionality
 
