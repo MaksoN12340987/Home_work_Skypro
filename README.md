@@ -29,7 +29,13 @@ python .\__main__.py
 - conversion_json_to_object
 
 Также у этого модуля имеется функция ```transaction_amount```, которая принимает на вход словарь транзакции, определяет тип валюты и возвращает сумму транзакциию
-Функция ```transaction_amount``` связана с модулем __Home_work_Skypro\src\external_api.py__
+Функция ```transaction_amount``` связана с модулем __Home_work_Skypro\src\external_api.py__, с функцией :
+- conversion_from_usd_eur_in_rub
+Которая умеет:
+- [X] gринимать на вход сумму в валюте 
+- [X] наименование валюты "RUB" или "USD"
+- [X] возвращать число типа "float" - валюта, конвертированная в рубли
+- [X] также имеет 1 доп параметр:- url ссылка на апи
 
 ### Новый функционал сортировки
 
@@ -69,4 +75,77 @@ pytest --cov
 ```
 в виртуальном окружении корневого каталога программы, чтобы увидеть колличество тестов, статусы прохождения тестов и покрытие.
 
+******************************************************************************************************************
 
+# Homework project on implementing functionality for working with banking data
+
+## Running the project
+Run the following command in the terminal, being in the root directory of the project, to see the result of some functions:
+```
+python .\__main__.py
+```
+
+### Requirement for running:
+- python - v3.12
+- python-dotenv - v1.0.1
+- requests - v2.32.3
+- logging - v0.4.9.6
+
+## Package src:
+In the widget.py module, a function mask_account_card is created that takes a string with the holder's name and card number or account number and returns the Holder's name and the masked card number or account number
+Transmission format:
+*"Visa Platinum 7000792289606361"*
+"Account 73654108430135874305"
+
+*Output format:*
+"Visa Platinum 7000 79** **** 6361"
+"Account **4305"
+
+### Module src\utils.py
+Can convert data from a file to a Python object using the path passed to the function:
+- conversion_json_to_object
+
+This module also has a function ```transaction_amount```, which takes a transaction dictionary as input, determines the currency type and returns the transaction amount
+The function ```transaction_amount``` is associated with the module __Home_work_Skypro\src\external_api.py__, with the function:
+- conversion_from_usd_eur_in_rub
+Which can:
+- [X] accept an amount in currency as input
+- [X] currency name "RUB" or "USD"
+- [X] return a "float" number - currency converted to rubles
+- [X] also has 1 additional parameter:- url link to api
+
+### New sorting functionality
+
+The src package now has a filter_by_state function that accepts a list of dictionaries and optionally a value for the **state** key (default 'EXECUTED'). The function returns a new list of dictionaries containing only those dictionaries whose **state** key
+
+matches the specified value.
+
+## Iterative output
+
+A module generators has been added to the src package, it implements the following functions:
+- filter_by_currency takes a list of dictionaries representing transactions as input and returns an iterator that outputs transactions one by one, where the transaction currency matches the specified one (for example, USD)
+- transaction_descriptions takes a list of dictionaries with transactions and returns a description of each transaction in turn
+- card_number_generator, which outputs bank card numbers in the format "XXXX XXXX XXXX XXXX", where X is the card number digit.
+
+## Added module logging
+
+By default, the .log file displays information about the function execution, and if errors occur, information about the error and input data
+
+Setting the logging level is done in each module by setting the parameter:
+```
+.setLevel(logging.INFO)
+```
+
+## Testing
+Testing modules have appeared in the test package, each module, according to its name, tests program modules from the src package
+
+To run testing, you need:
+- pytest library pytest = "^8.3.4"
+- pytest-cov library = "^6.0.0"
+
+The root directory contains the htmlcov directory, which contains the index.html module - it displays the project testing statistics. There is also a module test\generators.py, it tests the module src\generators.py
+Enter:
+```
+pytest --cov
+```
+in the virtual environment of the program root directory to see the number of tests, test pass statuses and coverage.
