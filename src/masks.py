@@ -1,8 +1,23 @@
+import logging
+
+
+logging.basicConfig(level=logging.INFO,
+                    format='\n%(asctime)s %(levelname)s %(name)s %(lineno)d: \n%(message)s',
+                    datefmt='%H:%M:%S %d-%m-%Y',
+                    filename=f"log/{__name__}.log",
+                    filemode='w')
+file_logger = logging.getLogger(__name__)
+
+
 # Functional part
 def get_mask_card_number(card_number: str = "", start: int = 0) -> str:
     """принимает на вход номер карты, индекс первой цыфры номера карты и возвращает маску номера
     по правилу User Name XXXX XX** **** XXXX"""
-    out_format = card_number[:start]
+    file_logger.info("Get started get_mask_card_number")
+    try:
+        out_format = card_number[:start]
+    except:
+        file_logger.warning(f"Аргумент start вне диапозона. Передана строка: {card_number}, а начало цифр передано:{start}")
     split = start + 3
     temp = range(start + 6, start + 12)
 
@@ -20,13 +35,20 @@ def get_mask_card_number(card_number: str = "", start: int = 0) -> str:
                     if i == split:
                         out_format += " "
                         split += 4
+    if card_number == "":
+        file_logger.warning(f"Возвращаем пустую строку, на вход получили: {card_number}")
     return out_format
 
 
 def get_mask_account(bank_account: str = "", start: int = 0) -> str:
     """принимает на вход номер счета и возвращает маску номера по правилу Name **XXXX"""
+    file_logger.info("Get started get_mask_account")
     out_format = ""
 
-    out_format += bank_account[:start] + "**" + bank_account[-4:]
-
+    try:
+        out_format += bank_account[:start] + "**" + bank_account[-4:]
+    except:
+        file_logger.warning(f"Аргумент start вне диапозона. Передана строка: {card_number}, а начало цифр передано:{start}")
+    if card_number == "":
+        file_logger.warning(f"Возвращаем пустую строку, на вход получили: {bank_account}")
     return out_format

@@ -311,6 +311,16 @@ files = [
 colors = ["colorama (>=0.4.6)"]
 
 [[package]]
+name = "logging"
+version = "0.4.9.6"
+description = "A logging module for Python"
+optional = false
+python-versions = "*"
+files = [
+    {file = "logging-0.4.9.6.tar.gz", hash = "sha256:26f6b50773f085042d301085bd1bf5d9f3735704db9f37c1ce6d8b85c38f2417"},
+]
+
+[[package]]
 name = "mccabe"
 version = "0.7.0"
 description = "McCabe checker, plugin for flake8"
@@ -533,17 +543,6 @@ socks = ["PySocks (>=1.5.6,!=1.5.7)"]
 use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
-name = "safe-assert"
-version = "0.5.0"
-description = "Safe assert for Python that can be used together with optimised mode"
-optional = false
-python-versions = "<4.0,>=3.9"
-files = [
-    {file = "safe_assert-0.5.0-py3-none-any.whl", hash = "sha256:aec1348bf6baac240d263b1c69eb0c00c0d9dc90c9d73c76cb9ad30d98ea8fd1"},
-    {file = "safe_assert-0.5.0.tar.gz", hash = "sha256:3d04d92d28ec6885246c8ed068dfca4109e4dbfb7c12bc1d3f9d825a86907cc9"},
-]
-
-[[package]]
 name = "typing-extensions"
 version = "4.12.2"
 description = "Backported and Experimental Type Hints for Python 3.8+"
@@ -574,4 +573,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "38c510c287913a475eaa319f19784b0ec5354eb6213c96b32beb16fa7e4a2dd1"
+content-hash = "91e847230ca586e4919e67baa547410c4b2cf8d1840f9880da327319b47513a4"
