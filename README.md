@@ -29,7 +29,7 @@ python .\__main__.py
 - conversion_json_to_object
 
 Также у этого модуля имеется функция ```transaction_amount```, которая принимает на вход словарь транзакции, определяет тип валюты и возвращает сумму транзакциию
-Функция ```transaction_amount``` связана с модулем --Home_work_Skypro\src\external_api.py--
+Функция ```transaction_amount``` связана с модулем __Home_work_Skypro\src\external_api.py__
 
 ### Новый функционал сортировки
 
