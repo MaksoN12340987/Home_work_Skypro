@@ -3,7 +3,6 @@ import logging
 
 from src.external_api import conversion_from_usd_eur_in_rub
 
-
 logger_utils = logging.getLogger(__name__)
 file_handler = logging.FileHandler(f"log/{__name__}.log", mode="w")
 file_formatter = logging.Formatter(

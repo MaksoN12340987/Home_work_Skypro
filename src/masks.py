@@ -1,6 +1,5 @@
 import logging
 
-
 logger_masks = logging.getLogger(__name__)
 file_handler = logging.FileHandler(f"log/{__name__}.log", mode="w")
 file_formatter = logging.Formatter(

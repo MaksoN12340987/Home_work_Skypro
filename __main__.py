@@ -1,11 +1,10 @@
 import logging
 
 from src.decorators import log, predicate_is_list, predicate_is_str
+from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state
-from src.widget import mask_account_card
-from src.masks import get_mask_card_number, get_mask_account
 from src.utils import conversion_json_to_object
-
+from src.widget import mask_account_card
 
 logger_main = logging.getLogger("main")
 file_handler = logging.FileHandler(f"log/{__name__}.log", mode="w")
@@ -17,12 +16,12 @@ logger_main.addHandler(file_handler)
 logger_main.setLevel(logging.INFO)
 
 
-def main():
+def main() -> None:
     logger_main.info("Get started main")
 
     # Function for outputting the result of work to the console
     @log(predicate_is_str, "Невозможно продолжить, передайте строку")
-    def print_result_to_console(to_mask):
+    def print_result_to_console(to_mask: str = "") -> str:
         return mask_account_card(to_mask)
 
     # print result to console
@@ -34,7 +33,7 @@ def main():
     mask_account_card("Счет 73654108430135874305")
 
     @log(predicate_is_list, "Невозможно продолжить, передайте список словарей")
-    def print_result_to_console(list, key="EXECUTED"):
+    def result_to_console(list: list = [], key: str = "EXECUTED") -> list:
         return filter_by_state(list, key)
 
     bank_operation = [
@@ -44,8 +43,8 @@ def main():
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:21:33.419441"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-13T08:20:00.419441"},
     ]
-    print_result_to_console(bank_operation)
-    print_result_to_console(bank_operation, "CANCELED")
+    result_to_console(bank_operation)
+    result_to_console(bank_operation, "CANCELED")
 
     # Демонстрация логирования
     print(get_mask_card_number("", 3))
