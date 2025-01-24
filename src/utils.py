@@ -7,7 +7,7 @@ def conversion_json_to_object(file_name="") -> list:
     """Принимает на вход путь до файла .json, который читает и
     возвращает список"""
     try:
-        with open(file_name, "r") as f:
+        with open(file_name, "rb") as f:
             data_bank_operation = json.load(f)
     except FileNotFoundError:
         data_bank_operation = []
