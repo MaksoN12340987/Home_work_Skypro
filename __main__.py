@@ -1,9 +1,24 @@
+import logging
+
 from src.decorators import log, predicate_is_list, predicate_is_str
-from src.external_api import conversion_from_usd_eur_in_rub
 from src.processing import filter_by_state
 from src.widget import mask_account_card
+from src.masks import get_mask_card_number, get_mask_account
+from src.utils import conversion_json_to_object
 
-if __name__ == "__main__":
+
+logger_main = logging.getLogger("main")
+file_handler = logging.FileHandler(f"log/{__name__}.log", mode="w")
+file_formatter = logging.Formatter(
+    "\n%(asctime)s %(levelname)s %(name)s %(lineno)d: \n%(message)s", datefmt="%H:%M:%S %d-%m-%Y"
+)
+file_handler.setFormatter(file_formatter)
+logger_main.addHandler(file_handler)
+logger_main.setLevel(logging.INFO)
+
+
+def main():
+    logger_main.info("Get started main")
 
     # Function for outputting the result of work to the console
     @log(predicate_is_str, "Невозможно продолжить, передайте строку")
@@ -32,4 +47,13 @@ if __name__ == "__main__":
     print_result_to_console(bank_operation)
     print_result_to_console(bank_operation, "CANCELED")
 
-    print(conversion_from_usd_eur_in_rub(100, "USD"))
+    # Демонстрация логирования
+    print(get_mask_card_number("", 3))
+    print(get_mask_account("", 3))
+
+    print(conversion_json_to_object("data/n.json"))
+    print(conversion_json_to_object("data/broken.json"))
+
+
+if __name__ == "__main__":
+    main()

@@ -8,7 +8,7 @@ def conversion_from_usd_eur_in_rub(
     transaction_sum=0,
     currency="",
     url="https://api.apilayer.com/exchangerates_data/convert",
-    filename: str = ".log/ex_api.log",
+    filename: str = "log/ex_api.log",
 ) -> float:
     """Принимает на вход сумму в валюте и наименование валюты "RUB" или "USD"
     Возвращает число типа "float" - валюта, конвертированная в рубли
