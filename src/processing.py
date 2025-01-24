@@ -2,7 +2,7 @@ from src.decorators import log, predicate_is_list
 
 
 # Bank transactions sorting function
-@log(predicate_is_list, "Невозможно продолжить, передайте строку", ".log/processing.log")
+@log(predicate_is_list, "Невозможно продолжить, передайте строку", "log/processing.log")
 def filter_by_state(to_sort: list = [], state_key: str = "EXECUTED") -> list:
     """Принимает список словарей и ключ: state (по умолчанию 'EXECUTED').
     Возвращает новый список словарей, содержащий словари соответствующих ключу"""
@@ -19,7 +19,7 @@ def filter_by_state(to_sort: list = [], state_key: str = "EXECUTED") -> list:
 
 
 # Sort list by date
-@log(predicate_is_list, "Невозможно продолжить, передайте строку", ".log/processing.log")
+@log(predicate_is_list, "Невозможно продолжить, передайте строку", "log/processing.log")
 def sort_by_date(operation_list: list = [], date: bool = True) -> list:
     """Принимает список словарей и параметр сортировки (по умолчанию "True" — убывание).
     Функция возвращает новый список, отсортированный по дате (date)"""
