@@ -9,3 +9,11 @@ def test_get_mask_card_number(card_number):
 
 def test_get_mask_account(account_number):
     assert get_mask_account(account_number, 5) == "Счет **4305"
+
+
+def test_get_mask_card_number_no_input():
+    assert get_mask_card_number() == ""
+
+
+def test_get_mask_account_no_input():
+    assert get_mask_account() == ""
