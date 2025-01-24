@@ -61,6 +61,10 @@ python .\__main__.py
 ```
 
 
+## Модуль file_interpretation.py
+В пакет src добавлен модуль, который умее читать файлы "csv" и "xlsx", а возвращать объукты Python
+
+
 ## Тестирование 
 В пакете test появились модули тестирования, каждый модуль, согласно названию, тестирует модули программы из пакета src
 
@@ -135,6 +139,11 @@ Setting the logging level is done in each module by setting the parameter:
 ```
 .setLevel(logging.INFO)
 ```
+
+
+## Module file_interpretation.py
+A module has been added to the src package that can read "csv" and "xlsx" files and return Python objects
+
 
 ## Testing
 Testing modules have appeared in the test package, each module, according to its name, tests program modules from the src package
