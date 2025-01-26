@@ -3,7 +3,6 @@ import logging
 
 from src.external_api import conversion_from_usd_eur_in_rub
 
-
 logger_utils = logging.getLogger(__name__)
 file_handler = logging.FileHandler(f"log/{__name__}.log", mode="w")
 file_formatter = logging.Formatter(
@@ -19,7 +18,7 @@ def conversion_json_to_object(file_name="") -> list:
     возвращает список"""
     logger_utils.info("Get started conversion_json_to_object")
     try:
-        with open(file_name, "r") as f:
+        with open(file_name, "rb") as f:
             data_bank_operation = json.load(f)
 
     except FileNotFoundError:

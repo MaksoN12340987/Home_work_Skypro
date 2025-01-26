@@ -1,6 +1,5 @@
 import logging
 
-
 logger_masks = logging.getLogger(__name__)
 file_handler = logging.FileHandler(f"log/{__name__}.log", mode="w")
 file_formatter = logging.Formatter(
@@ -37,7 +36,9 @@ def get_mask_card_number(card_number: str = "", start: int = 0) -> str:
 
     if card_number == "":
         logger_masks.warning(f'''Возвращаем пустую строку, на вход получили: "{card_number}"''')
-    return out_format
+        return ""
+    else:
+        return out_format
 
 
 def get_mask_account(bank_account: str = "", start: int = 0) -> str:
@@ -49,4 +50,6 @@ def get_mask_account(bank_account: str = "", start: int = 0) -> str:
 
     if bank_account == "":
         logger_masks.warning(f'''Возвращаем пустую строку, на вход получили: "{bank_account}"''')
-    return out_format
+        return ""
+    else:
+        return out_format
