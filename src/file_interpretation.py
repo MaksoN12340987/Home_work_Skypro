@@ -18,15 +18,15 @@ def conversion_csv_to_object(file_name=""):
     logger_interpretation.info("Get started conversion_json_to_object")
     try:
         with open(file_name, "rb") as f:
-            return pd.read_csv(f)
+            return pd.read_csv(f).to_dict("index")
 
     except FileNotFoundError:
         logger_interpretation.warning("File not found, return []")
-        return ""
+        return []
 
     except Exception:
         logger_interpretation.warning("Exceptional error, return []")
-        return ""
+        return []
 
 
 def conversion_xlsx_to_object(file_name=""):
@@ -35,12 +35,12 @@ def conversion_xlsx_to_object(file_name=""):
     logger_interpretation.info("Get started conversion_json_to_object")
     try:
         with open(file_name, "rb") as f:
-            return pd.read_excel(f)
+            return pd.read_excel(f).to_dict("index")
 
     except FileNotFoundError:
         logger_interpretation.warning("File not found, return []")
-        return ""
+        return []
 
     except Exception:
         logger_interpretation.warning("Exceptional error, return []")
-        return ""
+        return []

@@ -4,15 +4,15 @@ from src.file_interpretation import conversion_csv_to_object, conversion_xlsx_to
 
 
 def test_conversion_csv_to_object_path():
-    assert conversion_csv_to_object("data/transactions.csv").shape == (1000, 1)
+    assert len(conversion_csv_to_object("data/transactions.csv")) == 1000
 
 
 @pytest.mark.parametrize(
     "key, expected",
     [
-        ("", ""),
-        (None, ""),
-        (12456, ""),
+        ("", []),
+        (None, []),
+        (12456, []),
     ],
 )
 def test_conversion_csv_to_object_no_valid(key, expected):
@@ -20,15 +20,15 @@ def test_conversion_csv_to_object_no_valid(key, expected):
 
 
 def test_conversion_xlsx_to_object_path():
-    assert conversion_xlsx_to_object("data/transactions_excel.xlsx").shape == (1000, 9)
+    assert len(conversion_xlsx_to_object("data/transactions_excel.xlsx")) == 1000
 
 
 @pytest.mark.parametrize(
     "key, expected",
     [
-        ("", ""),
-        (None, ""),
-        (12456, ""),
+        ("", []),
+        (None, []),
+        (12456, []),
     ],
 )
 def test_conversion_xlsx_to_object_no_valid(key, expected):

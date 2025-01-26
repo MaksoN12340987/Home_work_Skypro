@@ -5,6 +5,7 @@ from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state
 from src.utils import conversion_json_to_object
 from src.widget import mask_account_card
+from src.file_interpretation import conversion_csv_to_object, conversion_xlsx_to_object
 
 logger_main = logging.getLogger("main")
 file_handler = logging.FileHandler(f"log/{__name__}.log", mode="w")
@@ -52,6 +53,9 @@ def main() -> None:
 
     print(conversion_json_to_object("data/n.json"))
     print(conversion_json_to_object("data/broken.json"))
+
+    print(len(conversion_csv_to_object("data/transactions.csv")))
+    print(len(conversion_xlsx_to_object("data/transactions_excel.xlsx")))
 
 
 if __name__ == "__main__":
