@@ -54,8 +54,8 @@ def main() -> None:
     print(conversion_json_to_object("data/n.json"))
     print(conversion_json_to_object("data/broken.json"))
 
-    print(len(conversion_csv_to_object("data/transactions.csv")))
-    print(len(conversion_xlsx_to_object("data/transactions_excel.xlsx")))
+    print(type(conversion_csv_to_object("data/transactions.csv")))
+    print(type(conversion_xlsx_to_object("data/transactions_excel.xlsx")))
 
 
 if __name__ == "__main__":
