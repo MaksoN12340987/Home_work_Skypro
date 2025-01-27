@@ -2,6 +2,9 @@ from src.processing import filter_by_state, sort_by_date
 from src.widget import mask_account_card
 
 
+
+
+
 def executive_function_output_main(
     function_choice,
     file_path,
@@ -29,15 +32,11 @@ def executive_function_output_main(
     if user_choice_name_discription != "да" and user_choice_name_discription != "нет":
         user_choice_name_discription = "нет"
 
-    
 
     if file_path == "data/operations.json" or file_path == "data/transactions_excel.xlsx":
-        return sort_by_date(filter_by_state(function_choice(file_path), user_key), user_choice_date)
+        return sort_by_date(filter_by_state(function_choice(file_path), user_key), user_choice_sort)
     else:
         return function_choice(file_path)
 
 
-# print(
-#                 "\nОбрабатывается operations.json"
-#                 + f"\nДля удобства выведу вам пару первых элементов:\n{function_choice(file_path)[:2]}"
-#             )
+
