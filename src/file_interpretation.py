@@ -18,7 +18,7 @@ def conversion_csv_to_object(file_name=""):
     logger_interpretation.info("Get started conversion_json_to_object")
     try:
         with open(file_name, "rb") as f:
-            return pd.read_csv(f).to_dict("records")
+            return pd.read_csv(f, delimiter=";").to_dict(orient="records")
 
     except FileNotFoundError:
         logger_interpretation.warning("File not found, return []")

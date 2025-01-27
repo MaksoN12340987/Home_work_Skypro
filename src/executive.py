@@ -33,10 +33,4 @@ def executive_function_output_main(
         user_choice_name_discription = "нет"
 
 
-    if file_path == "data/operations.json" or file_path == "data/transactions_excel.xlsx":
-        return sort_by_date(filter_by_state(function_choice(file_path), user_key), user_choice_sort)
-    else:
-        return function_choice(file_path)
-
-
-
+    return sort_by_date(filter_by_state(function_choice(file_path), user_key), user_choice_sort)
