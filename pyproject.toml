@@ -6,7 +6,7 @@ authors = [
     {name = "Maxim Andreev",email = "andrianov_maksim@outlook.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.13.1"
+requires-python = ">=3.13"
 dependencies = [
     "pandas (>=2.2.3,<3.0.0)",
     "openpyxl (>=3.1.5,<4.0.0)"
