@@ -40,7 +40,7 @@ def executive_function_output_main(
         user_choice_sort = True
 
     if user_choice_name_discription == "да":
-        search_query = input("Введите поисковый запрос: ")
+        search_query = input("Введите слово, по которому выполнить поиск: ")
         intermediate_result = sort_by_date(filter_by_state(function_choice(file_path), user_key), user_choice_sort)
     else:
         return sort_by_date(filter_by_state(function_choice(file_path), user_key), user_choice_sort)
