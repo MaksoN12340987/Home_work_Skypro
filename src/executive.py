@@ -45,6 +45,8 @@ def executive_function_output_main(
         result += f"\n{intermediate_result[i].get("date", "")[:10]} ".replace("-", ".")
         result += f"{intermediate_result[i].get("description", "")}"
         result += f"\n{mask_account_card(intermediate_result[i].get("from", ""))} -> {mask_account_card(intermediate_result[i].get("to", ""))}"
-        result += f"\nСумма: {intermediate_result[i].get("amount", "")} {intermediate_result[i].get("currency_code", "")}\n"
+        result += (
+            f"\nСумма: {intermediate_result[i].get("amount", "")} {intermediate_result[i].get("currency_code", "")}\n"
+        )
 
     return result

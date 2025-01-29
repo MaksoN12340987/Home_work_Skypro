@@ -42,7 +42,7 @@ def main() -> None:
     else:
         print("Хм, кажется такого варианта у меня пока нет(")
 
-    if function_choice:
+    if int(user_choice) > 3:
         triger = True
         while triger:
             user_key = input(
@@ -66,7 +66,7 @@ def main() -> None:
             if input("Выводить только рублевые тразакции? Да/Нет?\n").lower() == "да":
                 user_choice_rub = "RUB"
             else:
-                user_choice_rub = False
+                user_choice_rub = ""
 
             user_choice_name_discription = input(
                 "Отфильтровать список транзакций по определенному слову в описании? Да/Нет\n"
