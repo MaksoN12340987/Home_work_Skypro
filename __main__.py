@@ -53,9 +53,21 @@ def main() -> None:
                 triger = False
 
         if not triger:
-            user_choice_date = input("Отсортировать операции по дате? Да/Нет\n").lower()
-            user_choice_sort = input("Отсортировать по возрастанию или по убыванию?\n").lower()
-            user_choice_rub = input("Выводить только рублевые тразакции? Да/Нет?\n").lower()
+            if input("Отсортировать операции по дате? Да/Нет\n").lower() == "да":
+                user_choice_sort = True
+                if input("Отсортировать по возрастанию или по убыванию?\n").lower() == "по возрастанию":
+                    user_choice_sort_date = False
+                else:
+                    user_choice_sort_date = True
+            else:
+                user_choice_sort = False
+                user_choice_sort_date = False
+
+            if input("Выводить только рублевые тразакции? Да/Нет?\n").lower() == "да":
+                user_choice_rub = "RUB"
+            else:
+                user_choice_rub = False
+
             user_choice_name_discription = input(
                 "Отфильтровать список транзакций по определенному слову в описании? Да/Нет\n"
             ).lower()
@@ -65,8 +77,8 @@ def main() -> None:
                     function_choice,
                     file_path,
                     user_key,
-                    user_choice_date,
                     user_choice_sort,
+                    user_choice_sort_date,
                     user_choice_rub,
                     user_choice_name_discription,
                 )

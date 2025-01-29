@@ -1,3 +1,4 @@
+from src.search_by_string import search_in_list_by_string
 from src.processing import filter_by_state, sort_by_date
 from src.widget import mask_account_card
 
@@ -6,8 +7,8 @@ def executive_function_output_main(
     function_choice,
     file_path,
     user_key,
-    user_choice_date,
     user_choice_sort,
+    user_choice_sort_date,
     user_choice_rub,
     user_choice_name_discription,
 ):
@@ -25,22 +26,30 @@ def executive_function_output_main(
     Returns:
         _type_: _description_
     """
-    if user_choice_date != "да" and user_choice_date != "нет":
-        user_choice_date = "нет"
-    elif user_choice_sort == "да":
-        if user_choice_sort == "по возрастанию":
-            user_choice_sort = False
-        else:
-            user_choice_sort = True
+    intermediate_result = filter_by_state(function_choice(file_path), user_key)
 
-    if user_choice_rub != "по возрастанию" and user_choice_rub != "по убыванию":
-        user_choice_rub = True
+    if user_choice_sort:
+        intermediate_result = sort_by_date(intermediate_result, user_choice_sort_date)
 
-    if user_choice_sort != "по возрастанию" and user_choice_sort != "по убыванию":
-        user_choice_sort = True
+    if user_choice_rub:
+        intermediate_result = filter_by_state(intermediate_result, user_choice_rub, "currency_code")
 
     if user_choice_name_discription == "да":
         search_query = input("Введите слово, по которому выполнить поиск: ")
-        intermediate_result = sort_by_date(filter_by_state(function_choice(file_path), user_key), user_choice_sort)
-    else:
-        return sort_by_date(filter_by_state(function_choice(file_path), user_key), user_choice_sort)
+        intermediate_result = search_in_list_by_string(intermediate_result, search_query)
+
+    # Conclusion of the result
+    result = ""
+    for i in range(len(intermediate_result)):
+        try:
+            result += f"\n{intermediate_result[i].get("date", "")[:10]}"
+            result += f"\n{mask_account_card(intermediate_result[i].get("from", ""))}"
+            result += f" -> {mask_account_card(intermediate_result[i].get("to", ""))}\n"
+            result += f"Сумма: {intermediate_result[i].get("amount", "")} {intermediate_result[i].get("currency_code", "")}\n"
+        except Exception:
+            pass
+
+    # return result
+    # with open("result.py", "w", encoding="utf-8") as file:
+    #     file.write(f"{str(result)}")
+    return result
