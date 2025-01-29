@@ -41,15 +41,10 @@ def executive_function_output_main(
     # Conclusion of the result
     result = ""
     for i in range(len(intermediate_result)):
-        try:
-            result += f"\n{intermediate_result[i].get("date", "")[:10]}"
-            result += f"\n{mask_account_card(intermediate_result[i].get("from", ""))}"
-            result += f" -> {mask_account_card(intermediate_result[i].get("to", ""))}\n"
-            result += f"Сумма: {intermediate_result[i].get("amount", "")} {intermediate_result[i].get("currency_code", "")}\n"
-        except Exception:
-            pass
 
-    # return result
-    # with open("result.py", "w", encoding="utf-8") as file:
-    #     file.write(f"{str(result)}")
+        result += f"\n{intermediate_result[i].get("date", "")[:10]} ".replace("-", ".")
+        result += f"{intermediate_result[i].get("description", "")}"
+        result += f"\n{mask_account_card(intermediate_result[i].get("from", ""))} -> {mask_account_card(intermediate_result[i].get("to", ""))}"
+        result += f"\nСумма: {intermediate_result[i].get("amount", "")} {intermediate_result[i].get("currency_code", "")}\n"
+
     return result
