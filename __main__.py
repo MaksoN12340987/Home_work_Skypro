@@ -30,7 +30,7 @@ def main() -> None:
         .lower()
         .replace(".", "")
     )
-    
+
     execute = True
     if user_choice == "1":
         function_choice = conversion_json_to_object
@@ -49,8 +49,9 @@ def main() -> None:
         triger = True
         while triger:
             user_key = input(
-                "По какому статусу необходимо выполнить фильтрацию. Доступные для фильтровки статусы: EXECUTED, CANCELED, PENDING"
-                + "\nВведите статус: "
+                "По какому статусу необходимо выполнить фильтрацию.\n" +
+                "Доступные для фильтровки статусы: EXECUTED, CANCELED, PENDING" +
+                "\nВведите статус: "
             ).upper()
             if user_key == "EXECUTED" or user_key == "CANCELED" or user_key == "PENDING":
                 triger = False
