@@ -1,4 +1,4 @@
-from src.decorators import log, predicate_is_list
+# from src.decorators import log, predicate_is_list
 
 
 # Bank transactions sorting function

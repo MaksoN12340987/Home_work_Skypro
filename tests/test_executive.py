@@ -41,6 +41,7 @@ def test_executive_2_execudet_filt_rub(output_execudet_csv_filt_rub):
         == output_execudet_csv_filt_rub
     )
 
+
 def test_executive_3_execudet_filt_rub(output_execudet_xlsx_filt_rub):
     assert (
         executive_function_output_main(

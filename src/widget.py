@@ -1,4 +1,4 @@
-from src.decorators import log, predicate_is_str
+# from src.decorators import log, predicate_is_str
 from src.masks import get_mask_account, get_mask_card_number
 
 
