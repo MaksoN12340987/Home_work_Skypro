@@ -30,6 +30,8 @@ def main() -> None:
         .lower()
         .replace(".", "")
     )
+    
+    execute = True
     if user_choice == "1":
         function_choice = conversion_json_to_object
         file_path = "data/operations.json"
@@ -41,8 +43,9 @@ def main() -> None:
         file_path = "data/transactions_excel.xlsx"
     else:
         print("Хм, кажется такого варианта у меня пока нет(")
+        execute = False
 
-    if int(user_choice) > 3:
+    if execute:
         triger = True
         while triger:
             user_key = input(
