@@ -39,8 +39,11 @@ def transaction_amount(dict_transaction: dict = {}) -> float:
     currency = dict_transaction.get("operationAmount", {}).get("currency", {}).get("code", None)
     transaction_amount = dict_transaction.get("operationAmount", {}).get("amount", None)
 
-    if currency != "RUB":
-        return conversion_from_usd_eur_in_rub(transaction_amount, currency)
-    else:
-        logger_utils.info("And the currency is already RUB")
-        return float(transaction_amount)
+    try:
+        if currency != "RUB":
+            return conversion_from_usd_eur_in_rub(transaction_amount, currency)
+        else:
+            logger_utils.info("And the currency is already RUB")
+            return float(transaction_amount)
+    except Exception:
+        return 0.00
