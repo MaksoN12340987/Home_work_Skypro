@@ -43,6 +43,7 @@ def executive_function_output_main(
         intermediate_result = search_in_list_by_string(intermediate_result, search_query)
 
     # Conclusion of the result
+    framing = "Распечатываю итоговый список транзакций...\n"
     result = ""
     for i in range(len(intermediate_result)):
 
@@ -59,4 +60,7 @@ def executive_function_output_main(
                 + f"{intermediate_result[i].get("operationAmount", {}).get("currency", {}).get("code", "")}\n"
             )
 
-    return result
+    if result == "":
+        return "Не найдено ни одной транзакции, подходящей под ваши условия фильтрации"
+    else:
+        return framing + result

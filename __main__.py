@@ -53,7 +53,11 @@ def main() -> None:
                 + "Доступные для фильтровки статусы: EXECUTED, CANCELED, PENDING"
                 + "\nВведите статус: "
             ).upper()
+            print(user_key)
+            # if user_key != "EXECUTED" or user_key != "CANCELED" or user_key != "PENDING":
+            #     print(f"""\nСтатус операции "{user_key}" недоступен.\n""")
             if user_key == "EXECUTED" or user_key == "CANCELED" or user_key == "PENDING":
+                print(f"Операции отфильтрованы по статусу {user_key}")
                 triger = False
 
         if not triger:
@@ -76,6 +80,7 @@ def main() -> None:
                 "Отфильтровать список транзакций по определенному слову в описании? Да/Нет\n"
             ).lower()
 
+            
             print(
                 executive_function_output_main(
                     function_choice,
