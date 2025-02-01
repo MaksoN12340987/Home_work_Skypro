@@ -43,7 +43,7 @@ def executive_function_output_main(
         intermediate_result = search_in_list_by_string(intermediate_result, search_query)
 
     # Conclusion of the result
-    framing = "Распечатываю итоговый список транзакций...\n"
+    framing = f"Распечатываю итоговый список транзакций...\n{len(intermediate_result)}"
     result = ""
     for i in range(len(intermediate_result)):
 

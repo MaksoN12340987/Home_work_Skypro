@@ -10,15 +10,15 @@ from src.file_interpretation import conversion_csv_to_object, conversion_xlsx_to
     [
         (
             conversion_json_to_object,
-            "",
+            "Не найдено ни одной транзакции, подходящей под ваши условия фильтрации",
         ),
         (
             conversion_csv_to_object,
-            "",
+            "Не найдено ни одной транзакции, подходящей под ваши условия фильтрации",
         ),
         (
             conversion_xlsx_to_object,
-            "",
+            "Не найдено ни одной транзакции, подходящей под ваши условия фильтрации",
         ),
     ],
 )

@@ -80,7 +80,6 @@ def main() -> None:
                 "Отфильтровать список транзакций по определенному слову в описании? Да/Нет\n"
             ).lower()
 
-            
             print(
                 executive_function_output_main(
                     function_choice,
