@@ -26,12 +26,3 @@ def test_print_result_to_console(to_mask, mesage, capsys):
     print_result_to_console(to_mask)
     captured = capsys.readouterr()
     assert captured.out == mesage
-
-
-# @pytest.mark.parametrize(
-#     "to_mask, mesage",
-#     [(1, "Невозможно продолжить, передайте строку"), (None, "Невозможно продолжить, передайте строку")],
-# )
-# def test_proc_mask_account_card(to_mask, mesage):
-#     with pytest.raises(ValueError, match=mesage):
-#         mask_account_card(to_mask)
